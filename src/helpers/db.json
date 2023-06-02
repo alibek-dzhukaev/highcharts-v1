@@ -1,0 +1,470 @@
+{
+  "initial": [
+    {
+      "name": "DeFi",
+      "amount": 180,
+      "slug": "defi",
+      "range": "1M"
+    },
+    {
+      "name": "Infrastructure",
+      "amount": 94,
+      "slug": "infrastructure",
+      "range": "3M"
+    },
+    {
+      "name": "Crypto Financial Services",
+      "amount": 90,
+      "slug": "crypto-financial-services",
+      "range": "6M"
+    },
+    {
+      "name": "Trading / Brokerage",
+      "amount": 89,
+      "slug": "trading-brokerage",
+      "range": "1M"
+    },
+    {
+      "name": "NFTs / Gaming",
+      "amount": 88,
+      "slug": "nfts-gaming",
+      "range": "YTD"
+    },
+    {
+      "name": "Web3",
+      "amount": 42,
+      "slug": "web3",
+      "range": "1Y"
+    },
+    {
+      "name": "Enterprise",
+      "amount": 40,
+      "slug": "enterprise",
+      "range": "1Y"
+    },
+    {
+      "name": "Data / Analytics",
+      "amount": 36,
+      "slug": "data-analytics",
+      "range": "1Y"
+    }
+  ],
+  "drilldown": {
+    "defi": [
+      {
+        "name": "Ethereum",
+        "amount": 425,
+        "range": "1Y"
+      },
+      {
+        "name": "Cardano",
+        "amount": 221,
+        "range": "1Y"
+      },
+      {
+        "name": "Solana",
+        "amount": 214,
+        "range": "1M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 126,
+        "range": "1M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 87,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 84,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 82,
+        "range": "1M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 64,
+        "range": "1M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 62,
+        "range": "1Y"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "1M"
+      }
+    ],
+    "infrastructure": [
+      {
+        "name": "Ethereum",
+        "amount": 212,
+        "range": "1M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 124,
+        "range": "1M"
+      },
+      {
+        "name": "Solana",
+        "amount": 45,
+        "range": "1M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 43,
+        "range": "1M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 35,
+        "range": "1M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 32,
+        "range": "1M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 31,
+        "range": "3M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 30,
+        "range": "1Y"
+      },
+      {
+        "name": "Ripple",
+        "amount": 28,
+        "range": "1Y"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "1Y"
+      }
+    ],
+    "crypto-financial-services": [
+      {
+        "name": "Ethereum",
+        "amount": 45,
+        "range": "6M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 13,
+        "range": "6M"
+      },
+      {
+        "name": "Solana",
+        "amount": 12,
+        "range": "YTD"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "YTD"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 6,
+        "range": "YTD"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "6M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "6M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "1M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "1M"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "1M"
+      }
+    ],
+    "trading-brokerage": [
+      {
+        "name": "Ethereum",
+        "amount": 34,
+        "range": "3M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 25,
+        "range": "3M"
+      },
+      {
+        "name": "Solana",
+        "amount": 13,
+        "range": "3M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 10,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "3M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "3M"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "1M"
+      }
+    ],
+    "nfts-gaming": [
+      {
+        "name": "Ethereum",
+        "amount": 45,
+        "range": "3M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 13,
+        "range": "3M"
+      },
+      {
+        "name": "Solana",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 6,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "3M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "3M"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "YTD"
+      }
+    ],
+    "web3": [
+      {
+        "name": "Ethereum",
+        "amount": 45,
+        "range": "3M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 13,
+        "range": "3M"
+      },
+      {
+        "name": "Solana",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 6,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "3M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "3M"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "YTD"
+      }
+    ],
+    "enterprise": [
+      {
+        "name": "Ethereum",
+        "amount": 45,
+        "range": "3M"
+      },
+      {
+        "name": "Cardano",
+        "amount": 13,
+        "range": "3M"
+      },
+      {
+        "name": "Solana",
+        "amount": 12,
+        "range": "3M"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "6M"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 6,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "3M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "3M"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "YTD"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "YTD"
+      }
+    ],
+    "data-analytics": [
+      {
+        "name": "Ethereum",
+        "amount": 45,
+        "range": "YTD"
+      },
+      {
+        "name": "Cardano",
+        "amount": 13,
+        "range": "YTD"
+      },
+      {
+        "name": "Solana",
+        "amount": 12,
+        "range": "1Y"
+      },
+      {
+        "name": "Avalanche",
+        "amount": 12,
+        "range": "YTD"
+      },
+      {
+        "name": "Chainanalysis KYT",
+        "amount": 6,
+        "range": "1Y"
+      },
+      {
+        "name": "Hedgeletter Fabric",
+        "amount": 5,
+        "range": "YTD"
+      },
+      {
+        "name": "Hedgeletter Sawtooth",
+        "amount": 5,
+        "range": "1M"
+      },
+      {
+        "name": "Polka Dot",
+        "amount": 4,
+        "range": "YTD"
+      },
+      {
+        "name": "Ripple",
+        "amount": 2.5,
+        "range": "1M"
+      },
+      {
+        "name": "Tron DAO",
+        "amount": 2.5,
+        "range": "YTD"
+      }
+    ]
+  }
+}

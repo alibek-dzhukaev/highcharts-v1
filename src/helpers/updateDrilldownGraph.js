@@ -16,5 +16,6 @@ export const updateDrilldownGraph = (ctx, chart) => {
     const target = series[chart.point.drilldown]
     ctx.addSingleSeriesAsDrilldown(chart.point, target)
     ctx.applyDrilldown()
+    ctx.setTitle({text: target.name})
 }
 

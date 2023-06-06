@@ -1,101 +1,108 @@
-const renderSubtitle = (ctx) => {
-    const verticalOffset = 90
-    // Get chart center coordinates
-    const centerX = ctx.plotWidth / 2;
-    const centerY = ctx.plotHeight / 2 - verticalOffset;
-
-
-    if (ctx.label) {
-        ctx.label.destroy()
+export class Renderer {
+    static render(ctx) {
+        this.#subtitle(ctx)
+        this.#sum(ctx)
+        this.#buttons(ctx)
     }
 
-    // Create the label
-    ctx.label = ctx.renderer
-        .label('Invested ($ MM)', centerX, centerY)
-        .css({
-            color: '#FFFFFF',
-            fontSize: '24px',
-            fontWeight: 500,
-            fontFamily: 'Acumin Pro'
-        })
-        .add();
+    static #subtitle(ctx) {
+        const VERTICAL_OFFSET = 90
 
-    // Position the label in the center of the chart
-    const labelBox = ctx.label.getBBox();
-    ctx.label.translate(centerX - labelBox.width / 2, centerY - labelBox.height / 2);
-}
+        const XPosition = ctx.plotWidth / 2
+        const YPosition = ctx.plotHeight / 2 - VERTICAL_OFFSET
 
-const renderSum = (ctx, chart) => {
-    const sumResult = ctx.series.at(0).data.reduce((acc, cv) => acc + cv.y, 0)
+        if (ctx.label) {
+            ctx.label.destroy()
+        }
 
-    if(ctx.sum) {
-        ctx.sum.destroy()
-    }
-    const centerSecondX = ctx.plotWidth / 2 - 10;
-    const centerSecondY = ctx.plotHeight / 2 - 30
-    ctx.sum = ctx.renderer
-        .label(new Intl.NumberFormat("en-IN").format(sumResult), centerSecondX, centerSecondY)
-        .css({
-            color: '#ffffff',
-            fontSize: '80px',
-            fontWeight: 500,
-            fontFamily: 'Acumin Pro'
-        })
-        .add()
-
-    const sumBox = ctx.sum.getBBox()
-    ctx.sum.translate(centerSecondX - sumBox.width / 2, centerSecondY - sumBox.height / 2);
-}
-
-const renderButtons = (ctx, chart) => {
-    const verticalOffset = 90
-    // Get chart center coordinates
-    const centerX = ctx.plotWidth / 2;
-    const centerY = ctx.plotHeight / 2 - verticalOffset;
-    const zoomLabels = ['1M', '3M', '6M', 'YTD', '1Y']
-
-    if (Object.hasOwn(ctx, 'buttonList')) {
-        ctx.buttonList.forEach(button => {
-            button.destroy()
-        })
-        delete ctx.buttonList
-    }
-
-    ctx.buttonList = zoomLabels.reverse().map(label => {
-        return ctx.renderer.button(label, 100, 100, null,
-            {
-                fill: ctx.zoomButtonCLickedLabel === label ? '#333333' : 'transparent',
-                stroke: 'transparent',
-                style: {
-                    color: '#fff',
-                    fontWeight: 600,
-                    fontSize: '12px',
-                    fontFamily: 'Acumin Pro SemiCondensed'
-                }
-            },
-            {
-                fill: '#9d9d9d'
-            })
-            .on('click', function () {
-                ctx.zoomButtonCLickedLabel = label
-                const targetIndex = zoomLabels.findIndex(it => it === label)
-                const datalist = ctx.options.datalist.filter(set => {
-                    const idx = zoomLabels.findIndex(it => it === set.custom.range)
-                    return idx >= targetIndex
-                })
-                ctx.series[0].setData(datalist)
+        ctx.label = ctx.renderer
+            .label('Invested ($ MM)', XPosition, YPosition)
+            .css({
+                color: '#fff',
+                fontSize: '24px',
+                fontWeight: '500',
+                fontFamily: 'Acumin Pro'
             })
             .add()
-    })
-    ctx.buttonList.forEach((label, index) => {
-        label.translate(centerX + 70 - (30 * index * 1.5), centerY + 150)
-    })
+
+        const labelBox = ctx.label.getBBox()
+        ctx.label.translate(XPosition - labelBox.width / 2, YPosition - labelBox.height / 2)
+    }
+
+    static #sum(ctx) {
+        const HORIZONTAL_OFFSET = 10
+        const VERTICAL_OFFSET = 30
+
+
+        const overallSum = ctx.series.at(0).data.reduce((acc, cv) => acc + cv.y, 0)
+
+        if (ctx.sum) {
+            ctx.sum.destroy()
+        }
+
+        const XPosition = ctx.plotWidth / 2 - HORIZONTAL_OFFSET
+        const YPosition = ctx.plotHeight / 2 - VERTICAL_OFFSET
+
+        ctx.sum = ctx.renderer
+            .label(
+                new Intl.NumberFormat('en-IN').format(overallSum), XPosition, YPosition
+            )
+            .css({
+                color: '#ffffff',
+                fontSize: '80px',
+                fontWeight: '500',
+                fontFamily: 'Acumin Pro'
+            })
+            .add()
+
+        const sumBox = ctx.sum.getBBox()
+        ctx.sum.translate(XPosition - sumBox.width / 2, YPosition - sumBox.height / 2)
+    }
+
+    static #buttons(ctx) {
+        const VERTICAL_OFFSET = 90
+        const BUTTON_LIST_PROP = 'buttonList'
+
+        const XPosition = ctx.plotWidth / 2
+        const YPosition = ctx.plotHeight / 2 - VERTICAL_OFFSET
+
+        const zoomButtonLabels = ['1M', '3M', '6M', 'YTD', '1Y']
+
+        if (Object.hasOwn(ctx, BUTTON_LIST_PROP)) {
+            ctx.buttonList.forEach(button => {
+                button.destroy()
+            })
+            delete ctx[BUTTON_LIST_PROP]
+        }
+
+        ctx[BUTTON_LIST_PROP] = zoomButtonLabels.reverse().map(label => {
+            return ctx.renderer.button(label, 100, 100, null,
+                {
+                    fill: ctx.zoomButtonCLickedLabel === label ? '#333' : 'transparent',
+                    stroke: 'transparent',
+                    style: {
+                        color: '#fff',
+                        fontWeight: '600',
+                        fontSize: '12px',
+                        fontFamily: 'Acumin Pro SemiCondensed'
+                    }
+                },
+                {
+                    fill: '#9d9d9d'
+                })
+                .on('click', function () {
+                    ctx.zoomButtonCLickedLabel = label
+                    const targetIndex = zoomButtonLabels.findIndex(it => it === label)
+                    const datalist = ctx.options.datalist.filter(set => {
+                        const idx = zoomButtonLabels.findIndex(it => it === set.custom.range)
+                        return idx >= targetIndex
+                    })
+                    ctx.series[0].setData(datalist)
+                })
+                .add()
+        })
+        ctx.buttonList.forEach((label, index) => {
+            label.translate(XPosition + 70 - (30 * index * 1.5), YPosition + 150)
+        })
+    }
 }
-
-export const render = (ctx, chart) => {
-    renderSubtitle(ctx)
-    renderSum(ctx, chart)
-    renderButtons(ctx, chart)
-}
-
-

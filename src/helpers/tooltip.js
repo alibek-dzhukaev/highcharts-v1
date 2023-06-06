@@ -11,6 +11,6 @@ export const formatTooltip = (ctx) => {
     const linkLabel = 'https://www.google.com/search?q=' + ctx.point.name
     const link = '<a target="_blank" href="' + linkLabel + '" style="text-decoration: none; padding: 5px 10px; margin: 5px 10px; background: #0B50CF; color: #fff">' + 'See ' + ctx.point.name + '</a>'
 
-    content += '<div style="min-width: 210px; display: flex; flex-direction: column; justify-content: space-between; text-align: center">' + topLine + '<br>' + bottomLine + '<br>' + link  + '</div>'
+    content += '<div style="min-width: 210px; min-height: 100px; display: flex; flex-direction: column; justify-content: space-between; text-align: center">' + topLine + '<br>' + bottomLine + '<br>' + link  + '</div>'
     return content
 }

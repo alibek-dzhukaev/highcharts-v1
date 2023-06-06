@@ -1,7 +1,6 @@
 import {updateDrilldownGraph} from "@/helpers/updateDrilldownGraph";
-import {render} from "@/helpers/render";
+import {Renderer} from "@/helpers/render";
 import {formatTooltip} from "@/helpers/tooltip";
-import {datalist} from "@/helpers/datalist";
 
 export const chartOptions = {
     chart: {
@@ -12,11 +11,13 @@ export const chartOptions = {
         type: 'pie',
         events: {
             drilldown: function (chart) {
+                // clear zoom label clicked state
                 delete this.zoomButtonCLickedLabel
+
                 updateDrilldownGraph(this, chart)
             },
-            render: function (chart) {
-                render(this, chart)
+            render: function () {
+                Renderer.render(this)
             }
         }
     },
@@ -77,6 +78,6 @@ export const chartOptions = {
         name: 'Capital Invested',
         colorByPoint: true,
         innerSize: '95%',
-        data: datalist
+        data: []
     }]
 }

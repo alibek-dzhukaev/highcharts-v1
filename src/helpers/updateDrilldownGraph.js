@@ -1,7 +1,5 @@
-import {drillDownDatalist} from "@/helpers/datalist";
-
 export const updateDrilldownGraph = (ctx, chart) => {
-    const series = Object.entries(drillDownDatalist)
+    const series = Object.entries(ctx.options.drillDownDatalist)
         .reduce((acc, [slug, dataset]) => {
             const name = slug.replaceAll('-', ' ')
             acc[slug] = {

@@ -3,31 +3,57 @@ import Highcharts from "highcharts";
 import dataModule from "highcharts/modules/data";
 import drilldown from "highcharts/modules/drilldown";
 import {chartOptions} from "@/helpers/chartOptions";
-import {datalist, drillDownDatalist} from "@/helpers/datalist";
+import {DatalistManager} from "@/helpers/datalist";
 
 drilldown(Highcharts);
 dataModule(Highcharts);
 
 export default {
+  props: {
+    data: {
+      type: Object,
+      default: () => ({initial: {}, drilldown: {}})
+    }
+  },
   data() {
     return {
-      chartOptions: {
-        ...chartOptions,
-        datalist: datalist,
-        drillDownDatalist: drillDownDatalist
-      }
+      options: chartOptions
     }
+  },
+  watch: {
+    data: {
+      handler(data) {
+        const datalistManager = new DatalistManager()
+        const initialDatalist = datalistManager.mapDatalist(data.initial)
+        const drillDownDatalist = datalistManager.mapDrillDownDatalist(data.drilldown)
+        
+        this.options = {
+          ...chartOptions,
+          series: [{
+            ...chartOptions.series.at(0),
+            data: initialDatalist,
+          }],
+          datalist: initialDatalist,
+          drillDownDatalist: drillDownDatalist
+        }
+      },
+      immediate: true
+    }
+  },
+  created() {
   },
   methods: {
     updateGraph(drilldown) {
       if (!drilldown) return
 
-      this.chartOptions = {
-        ...this.chartOptions,
-        series: [{
-          ...this.chartOptions.series.at(0),
-          data: drillDownDatalist[drilldown]
-        }]
+      this.options = {
+        ...chartOptions,
+        series: [
+          {
+            ...this.options.series.at(0),
+            data: this.options.drillDownDatalist[drilldown]
+          }
+        ]
       }
     }
   }
@@ -37,11 +63,11 @@ export default {
 <template>
   <div class="chartElem">
     <div class="container">
-      <highcharts :options="chartOptions"></highcharts>
+      <highcharts :options="options"></highcharts>
     </div>
     <div class="buttons">
       <button
-          v-for="item in chartOptions.series[0].data"
+          v-for="item in options.series[0].data"
           class="button"
           @click="updateGraph(item.drilldown)"
       >
@@ -60,6 +86,7 @@ export default {
   justify-content: center;
 
 }
+
 .container {
 }
 
